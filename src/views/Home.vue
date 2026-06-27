@@ -2,9 +2,9 @@
 import { ref, onMounted } from 'vue'
 import { api } from '../utils/api'
 import type { Novel } from '@shared/types'
-import NovelCard from '../novel/NovelCard.vue'
-import CategoryBar from '../novel/CategoryBar.vue'
-import HeroCarousel from '../novel/HeroCarousel.vue'
+import NovelCard from '../components/novel/NovelCard.vue'
+import CategoryBar from '../components/novel/CategoryBar.vue'
+import HeroCarousel from '../components/novel/HeroCarousel.vue'
 import { Sparkles, Clock } from 'lucide-vue-next'
 
 const featuredNovels = ref<Novel[]>([])
