@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { api } from '../utils/api'
 import type { Novel, Volume, ReadingProgress } from '@shared/types'
@@ -17,16 +17,6 @@ const volumes = ref<Volume[]>([])
 const loading = ref(true)
 const expandedVolumes = ref<Set<string>>(new Set())
 const activeFormat = ref<string | null>(null)
-
-const allChapters = computed(() => {
-  const chapters: { id: string; title: string; volumeId: string; volumeTitle: string }[] = []
-  for (const vol of volumes.value) {
-    for (const ch of vol.chapters) {
-      chapters.push({ id: ch.id, title: ch.title, volumeId: vol.id, volumeTitle: vol.title })
-    }
-  }
-  return chapters
-})
 
 const totalWords = computed(() => {
   if (!novel.value) return 0
@@ -274,7 +264,7 @@ onMounted(loadData)
                 <div v-if="expandedVolumes.has(volume.id)" class="bg-white/50">
                   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 p-2">
                     <button
-                      v-for="(chapter, idx) in volume.chapters"
+                      v-for="(chapter, _chapterIdx) in volume.chapters"
                       :key="chapter.id"
                       @click="startReading(chapter.id)"
                       :class="[

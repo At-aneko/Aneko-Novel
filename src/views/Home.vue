@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { api } from '../../utils/api'
+import { api } from '../utils/api'
 import type { Novel } from '@shared/types'
 import NovelCard from '../novel/NovelCard.vue'
 import CategoryBar from '../novel/CategoryBar.vue'
 import HeroCarousel from '../novel/HeroCarousel.vue'
-import { Sparkles, Clock, TrendingUp } from 'lucide-vue-next'
+import { Sparkles, Clock } from 'lucide-vue-next'
 
 const featuredNovels = ref<Novel[]>([])
 const latestNovels = ref<Novel[]>([])

@@ -3,7 +3,7 @@ import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { api } from '../utils/api'
 import {
-  ChevronLeft, ChevronRight, List, Settings, Font, Sun, Moon,
+  ChevronLeft, ChevronRight, List, Settings, Type, Sun, Moon,
   Leaf, Heart, Minus, Plus, Home, X, ArrowLeft
 } from 'lucide-vue-next'
 import type { ChapterContent, Volume } from '@shared/types'
@@ -390,7 +390,7 @@ onUnmounted(() => {
 
             <div class="mb-8">
               <h4 :class="['text-sm font-medium mb-3 flex items-center gap-2', themeTextClass]">
-                <Font :size="16" />
+                <Type :size="16" />
                 字体大小: {{ fontSize }}px
               </h4>
               <div class="flex items-center gap-4">

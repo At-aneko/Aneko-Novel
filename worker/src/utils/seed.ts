@@ -1,5 +1,4 @@
 import type { Env, Novel } from '../../../shared/types'
-import { generateId } from './device'
 
 const sampleNovels = (): Omit<Novel, 'chapterCount'>[] => [
   {
@@ -284,7 +283,7 @@ const sampleNovels = (): Omit<Novel, 'chapterCount'>[] => [
   }
 ]
 
-function generateChapterContent(title: string, chapterTitle: string): string {
+function generateChapterContent(_title: string, chapterTitle: string): string {
   const paragraphs = [
     `${chapterTitle}`,
     '',

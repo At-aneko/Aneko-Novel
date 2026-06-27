@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { Search, BookOpen, Home, Menu, X, Moon, Sun } from 'lucide-vue-next'
+import { Search, Home, Menu, X, Moon, Sun } from 'lucide-vue-next'
 
 const router = useRouter()
 const route = useRoute()
