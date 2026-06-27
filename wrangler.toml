@@ -13,20 +13,20 @@ run_worker_first = true
 # R2 存储桶 - 存储小说文件和封面
 [[r2_buckets]]
 binding = "NOVEL_BUCKET"
-bucket_name = "novel-files"
-preview_bucket_name = "novel-files-preview"
+bucket_name = "novel"
+preview_bucket_name = "novel"
 
 # KV 命名空间 - 存储小说元数据
 [[kv_namespaces]]
 binding = "NOVEL_META"
-id = "your-novel-meta-kv-id"
-preview_id = "your-novel-meta-kv-preview-id"
+id = "c46c4528cec84667a2231ff2fb232e6e"
+preview_id = "c46c4528cec84667a2231ff2fb232e6e"
 
 # KV 命名空间 - 存储阅读进度
 [[kv_namespaces]]
 binding = "READING_PROGRESS"
-id = "your-reading-progress-kv-id"
-preview_id = "your-reading-progress-kv-preview-id"
+id = "56aadc69c66c4593a38c9054da2526f5"
+preview_id = "56aadc69c66c4593a38c9054da2526f5"
 
 # 环境变量
 [vars]
