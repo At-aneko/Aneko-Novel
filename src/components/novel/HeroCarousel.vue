@@ -42,7 +42,7 @@ onUnmounted(() => {
 
 <template>
   <div class="relative h-[420px] md:h-[500px] overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-lavender-100/50 via-sakura-100/30 to-white" />
+    <div class="absolute inset-0 bg-gradient-to-b from-lavender-100/50 via-sakura-100/30 to-white dark:from-gray-900/80 dark:via-gray-900/50 dark:to-gray-950" />
 
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="absolute top-10 left-10 w-32 h-32 rounded-full bg-sakura-200/30 blur-3xl animate-pulse-slow" />
@@ -84,16 +84,16 @@ onUnmounted(() => {
               <span class="text-2xl">✨</span>
               <span class="text-sm font-medium text-sakura-500 uppercase tracking-wider">编辑推荐</span>
             </div>
-            <h1 class="font-cute text-4xl md:text-5xl text-gray-800 text-shadow-glow mb-3">
+            <h1 class="font-cute text-4xl md:text-5xl text-gray-800 dark:text-gray-100 text-shadow-glow mb-3">
               {{ currentNovel.title }}
             </h1>
-            <p class="text-lg text-gray-600 mb-4">{{ currentNovel.author }}</p>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">{{ currentNovel.author }}</p>
             <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
               <span v-for="tag in currentNovel.tags.slice(0, 4)" :key="tag" class="tag">
                 {{ tag }}
               </span>
             </div>
-            <p class="text-gray-600 leading-relaxed max-w-xl line-clamp-3 mb-6">
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl line-clamp-3 mb-6">
               {{ currentNovel.description }}
             </p>
             <button
@@ -113,14 +113,14 @@ onUnmounted(() => {
       @click="prevSlide"
       class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center hover:bg-white/90 transition-all hover:scale-110 shadow-lg"
     >
-      <ChevronLeft :size="22" class="text-gray-700" />
+      <ChevronLeft :size="22" class="text-gray-700 dark:text-gray-300" />
     </button>
     <button
       v-if="!loading && novels.length > 1"
       @click="nextSlide"
       class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center hover:bg-white/90 transition-all hover:scale-110 shadow-lg"
     >
-      <ChevronRight :size="22" class="text-gray-700" />
+      <ChevronRight :size="22" class="text-gray-700 dark:text-gray-300" />
     </button>
 
     <div v-if="!loading && novels.length > 1" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">

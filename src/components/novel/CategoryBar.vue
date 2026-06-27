@@ -49,7 +49,7 @@ function selectCategory(catId: string) {
           'flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
           activeCategory === cat.id
             ? 'bg-gradient-to-r from-sakura-400 to-sakura-500 text-white shadow-lg shadow-sakura-200/50 scale-105'
-            : 'bg-white/60 text-gray-600 hover:bg-sakura-50 hover:text-sakura-500'
+            : 'bg-white/60 dark:bg-gray-800/60 text-gray-600 dark:text-gray-400 hover:bg-sakura-50 dark:hover:bg-gray-700 hover:text-sakura-500'
         ]"
       >
         <span>{{ cat.icon }}</span>

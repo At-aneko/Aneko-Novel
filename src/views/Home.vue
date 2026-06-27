@@ -37,20 +37,20 @@ onMounted(async () => {
 
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 flex items-center justify-center shadow-lg shadow-orange-200/50">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 flex items-center justify-center shadow-lg shadow-orange-200/50 dark:shadow-orange-900/30">
           <Sparkles class="text-white" :size="20" />
         </div>
         <div>
-          <h2 class="text-2xl font-cute text-gray-800">热门推荐</h2>
-          <p class="text-sm text-gray-500">编辑精选优质作品</p>
+          <h2 class="text-2xl font-cute text-gray-800 dark:text-gray-100">热门推荐</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400">编辑精选优质作品</p>
         </div>
       </div>
 
       <div v-if="loading" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         <div v-for="i in 6" :key="i" class="animate-pulse">
-          <div class="aspect-[3/4] rounded-2xl bg-sakura-100/50"></div>
-          <div class="mt-3 h-4 bg-sakura-100/50 rounded w-3/4"></div>
-          <div class="mt-2 h-3 bg-sakura-50/50 rounded w-1/2"></div>
+          <div class="aspect-[3/4] rounded-2xl bg-sakura-100/50 dark:bg-gray-800"></div>
+          <div class="mt-3 h-4 bg-sakura-100/50 dark:bg-gray-800 rounded w-3/4"></div>
+          <div class="mt-2 h-3 bg-sakura-50/50 dark:bg-gray-800 rounded w-1/2"></div>
         </div>
       </div>
 
@@ -61,12 +61,12 @@ onMounted(async () => {
 
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20">
       <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shadow-lg shadow-sky-200/50">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shadow-lg shadow-sky-200/50 dark:shadow-sky-900/30">
           <Clock class="text-white" :size="20" />
         </div>
         <div>
-          <h2 class="text-2xl font-cute text-gray-800">最新更新</h2>
-          <p class="text-sm text-gray-500">追更快人一步</p>
+          <h2 class="text-2xl font-cute text-gray-800 dark:text-gray-100">最新更新</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400">追更快人一步</p>
         </div>
       </div>
 
@@ -97,11 +97,11 @@ onMounted(async () => {
             />
           </div>
           <div class="flex-1 min-w-0">
-            <h3 class="font-semibold text-gray-800 group-hover:text-sakura-500 transition-colors truncate">
+            <h3 class="font-semibold text-gray-800 dark:text-gray-100 group-hover:text-sakura-500 transition-colors truncate">
               {{ novel.title }}
             </h3>
-            <p class="text-sm text-gray-500 mt-0.5">{{ novel.author }}</p>
-            <p class="text-sm text-gray-600 mt-2 line-clamp-2 leading-relaxed">
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{{ novel.author }}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-2 leading-relaxed">
               {{ novel.description }}
             </p>
             <div class="flex items-center gap-2 mt-2">
@@ -109,13 +109,13 @@ onMounted(async () => {
                 :class="[
                   'text-xs px-2 py-0.5 rounded-full',
                   novel.status === 'completed'
-                    ? 'bg-green-100 text-green-600'
-                    : 'bg-sakura-100 text-sakura-600'
+                    ? 'bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400'
+                    : 'bg-sakura-100 dark:bg-sakura-900/50 text-sakura-600 dark:text-sakura-400'
                 ]"
               >
                 {{ novel.status === 'completed' ? '已完结' : '连载中' }}
               </span>
-              <span class="text-xs text-gray-400">{{ Math.round(novel.wordCount / 10000) }}万字</span>
+              <span class="text-xs text-gray-400 dark:text-gray-500">{{ Math.round(novel.wordCount / 10000) }}万字</span>
             </div>
           </div>
         </router-link>

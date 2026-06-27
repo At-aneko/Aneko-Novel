@@ -10,6 +10,8 @@
   body {
     font-family: 'Nunito', 'Noto Serif SC', system-ui, sans-serif;
     @apply bg-gradient-to-br from-sakura-50 via-white to-lavender-50 min-h-screen text-gray-800;
+    @apply dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 dark:text-gray-300;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   .font-cute {
@@ -28,14 +30,17 @@
 
   .btn-secondary {
     @apply px-6 py-2.5 bg-white/80 backdrop-blur-sm border border-sakura-200 text-sakura-600 rounded-full font-medium hover:bg-sakura-50 hover:border-sakura-300 hover:scale-105 active:scale-95 transition-all duration-300;
+    @apply dark:bg-gray-800/80 dark:border-gray-700 dark:text-sakura-400 dark:hover:bg-gray-700/80 dark:hover:border-sakura-600;
   }
 
   .card-hover {
     @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:shadow-sakura-200/50;
+    @apply dark:hover:shadow-sakura-900/40;
   }
 
   .glass {
     @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-lg shadow-sakura-100/30;
+    @apply dark:bg-gray-900/70 dark:border-gray-800/50 dark:shadow-black/20;
   }
 
   .glass-dark {
@@ -44,10 +49,12 @@
 
   .tag {
     @apply px-2.5 py-0.5 text-xs rounded-full bg-gradient-to-r from-sakura-100 to-lavender-100 text-sakura-600 font-medium;
+    @apply dark:from-sakura-900/50 dark:to-lavender-900/50 dark:text-sakura-400;
   }
 
   .input-field {
     @apply w-full px-4 py-2.5 rounded-xl border border-sakura-200 bg-white/80 focus:outline-none focus:ring-2 focus:ring-sakura-300 focus:border-transparent transition-all duration-200;
+    @apply dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-300 dark:focus:ring-sakura-600;
   }
 
   .novel-content p {
@@ -84,8 +91,17 @@
   @apply bg-sakura-300;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-700;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
 .theme-day {
   @apply bg-gradient-to-b from-amber-50 to-orange-50 text-gray-800;
+  @apply dark:from-gray-950 dark:to-gray-900 dark:text-gray-300;
 }
 
 .theme-night {
@@ -94,10 +110,12 @@
 
 .theme-eye {
   @apply bg-green-50 text-gray-800;
+  @apply dark:from-green-950 dark:to-green-900 dark:text-gray-300;
 }
 
 .theme-pink {
   @apply bg-pink-50 text-gray-800;
+  @apply dark:from-pink-950 dark:to-pink-900 dark:text-gray-300;
 }
 
 .reader-content p {

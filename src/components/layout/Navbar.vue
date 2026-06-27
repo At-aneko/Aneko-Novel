@@ -17,6 +17,21 @@ function handleScroll() {
 function toggleTheme() {
   isDark.value = !isDark.value
   document.documentElement.classList.toggle('dark', isDark.value)
+  localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
+}
+
+function applySavedTheme() {
+  const saved = localStorage.getItem('theme')
+  if (saved === 'dark') {
+    isDark.value = true
+    document.documentElement.classList.add('dark')
+  } else if (saved === 'light') {
+    isDark.value = false
+    document.documentElement.classList.remove('dark')
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    isDark.value = true
+    document.documentElement.classList.add('dark')
+  }
 }
 
 function goHome() {
@@ -33,6 +48,7 @@ function goSearch() {
 }
 
 onMounted(() => {
+  applySavedTheme()
   window.addEventListener('scroll', handleScroll)
 })
 
@@ -64,8 +80,8 @@ onUnmounted(() => {
               :class="[
                 'flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
                 route.path === '/'
-                  ? 'bg-sakura-100 text-sakura-600'
-                  : 'text-gray-600 hover:bg-sakura-50 hover:text-sakura-500'
+                  ? 'bg-sakura-100 dark:bg-sakura-900/40 text-sakura-600 dark:text-sakura-400'
+                  : 'text-gray-600 dark:text-gray-400 hover:bg-sakura-50 dark:hover:bg-gray-800 hover:text-sakura-500'
               ]"
             >
               <Home :size="18" />
@@ -81,7 +97,7 @@ onUnmounted(() => {
               @keyup.enter="goSearch"
               type="text"
               placeholder="搜索小说、作者..."
-              class="w-full pl-10 pr-4 py-2 rounded-full glass border-0 focus:ring-2 focus:ring-sakura-300 text-sm"
+              class="w-full pl-10 pr-4 py-2 rounded-full glass border-0 focus:ring-2 focus:ring-sakura-300 dark:focus:ring-sakura-600 text-sm"
             />
             <Search class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" :size="18" />
           </div>
@@ -90,18 +106,18 @@ onUnmounted(() => {
         <div class="flex items-center gap-2">
           <button
             @click="toggleTheme"
-            class="p-2 rounded-full hover:bg-sakura-50 transition-colors"
+            class="p-2 rounded-full hover:bg-sakura-50 dark:hover:bg-gray-800 transition-colors"
           >
-            <Moon v-if="!isDark" :size="20" class="text-gray-600" />
+            <Moon v-if="!isDark" :size="20" class="text-gray-600 dark:text-gray-400" />
             <Sun v-else :size="20" class="text-yellow-500" />
           </button>
 
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="md:hidden p-2 rounded-full hover:bg-sakura-50"
+            class="md:hidden p-2 rounded-full hover:bg-sakura-50 dark:hover:bg-gray-800"
           >
-            <Menu v-if="!mobileMenuOpen" :size="22" />
-            <X v-else :size="22" />
+            <Menu v-if="!mobileMenuOpen" :size="22" class="text-gray-600 dark:text-gray-400" />
+            <X v-else :size="22" class="text-gray-600 dark:text-gray-400" />
           </button>
         </div>
       </div>
@@ -122,13 +138,13 @@ onUnmounted(() => {
             @keyup.enter="goSearch"
             type="text"
             placeholder="搜索小说、作者..."
-            class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/80 border border-sakura-100 focus:outline-none focus:ring-2 focus:ring-sakura-300 text-sm"
+            class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/80 dark:bg-gray-800/80 border border-sakura-100 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-sakura-300 dark:focus:ring-sakura-600 text-sm dark:text-gray-300"
           />
           <Search class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" :size="18" />
         </div>
         <button
           @click="goHome"
-          class="w-full flex items-center gap-2 px-4 py-3 rounded-xl text-left hover:bg-sakura-50 transition-colors"
+          class="w-full flex items-center gap-2 px-4 py-3 rounded-xl text-left hover:bg-sakura-50 dark:hover:bg-gray-800 dark:text-gray-300 transition-colors"
         >
           <Home :size="18" />
           <span>首页</span>

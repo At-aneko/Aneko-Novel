@@ -44,10 +44,10 @@ function goDetail(id: string) {
       </div>
     </div>
     <div class="mt-3 px-1">
-      <h3 class="font-medium text-gray-800 group-hover:text-sakura-500 transition-colors truncate">
+      <h3 class="font-medium text-gray-800 dark:text-gray-100 group-hover:text-sakura-500 transition-colors truncate">
         {{ novel.title }}
       </h3>
-      <p class="text-sm text-gray-500 mt-0.5 truncate">{{ novel.author }}</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5 truncate">{{ novel.author }}</p>
       <div class="flex flex-wrap gap-1 mt-1.5">
         <span v-for="tag in novel.tags.slice(0, 2)" :key="tag" class="tag text-[10px]">
           {{ tag }}
